@@ -36,6 +36,6 @@
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))
 
-(require 'geiser-install)
-(require 'quack)
-(quack-install)
+(require 'geiser-install nil t)
+(when (require 'quack nil t)
+  (quack-install))
