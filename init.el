@@ -39,3 +39,12 @@
 (require 'geiser-install nil t)
 (when (require 'quack nil t)
   (quack-install))
+
+;; disabling prompts
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq confirm-nonexistent-file-or-buffer nil)
+
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function
+            kill-buffer-query-functions))
