@@ -36,6 +36,10 @@
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))
 
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 (require 'geiser-install nil t)
 (when (require 'quack nil t)
   (quack-install))
