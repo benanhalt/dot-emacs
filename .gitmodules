@@ -1,0 +1,3 @@
+[submodule "site-lisp/restclient"]
+	path = site-lisp/restclient
+	url = git://github.com/pashky/restclient.el.git
