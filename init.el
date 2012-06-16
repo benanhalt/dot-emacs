@@ -4,6 +4,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
+ '(toe-starting-time-per-word 6)
  '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -13,6 +14,7 @@
  )
 
 (let ((default-directory "~/.emacs.d/site-lisp/"))
+  (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
 (require 'scala-mode-auto)
@@ -40,7 +42,9 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-(require 'geiser-install nil t)
+(when (require 'geiser-install nil t)
+  (setq geiser-repl-startup-time 20000))
+
 (when (require 'quack nil t)
   (quack-install))
 
@@ -59,3 +63,6 @@
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
 (require 'restclient)
+
+(require 'typing)
+(autoload 'typing-of-emacs "Typing of Emacs" t)
