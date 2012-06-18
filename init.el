@@ -66,3 +66,10 @@
 
 (require 'typing)
 (autoload 'typing-of-emacs "Typing of Emacs" t)
+
+;; use javascript mode for .json
+(setq auto-mode-alist
+      (append '(("\\.json$" . javascript-mode)) auto-mode-alist))
+
+(global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
+
