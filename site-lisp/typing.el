@@ -273,12 +273,18 @@ Answers are the sentences following a question."
 
 (defun toe-success ()
   "Give success feedback."
-  (toe-feedback toe-success-messages)
+  (insert " - "
+          (propertize
+           (toe-feedback toe-success-messages)
+           'face '(:foreground "blue")))
   'success)
 
 (defun toe-failure ()
   "Give failure feedback."
-  (toe-feedback toe-failure-messages)
+  (insert " - "
+          (propertize
+           (toe-feedback toe-failure-messages)
+           'face '(:foreground "red")))
   ;; dynamic binding!
   (setq toe-lives (1- toe-lives))
   (insert (format " - %d LIVES LEFT!" toe-lives))
@@ -289,7 +295,7 @@ Answers are the sentences following a question."
   (let ((feedback (elt stuff (random (length stuff)))))
     (when (featurep 'emacspeak)
       (dtk-speak feedback))
-    (insert " - " feedback)))
+    feedback))
 
 ;; Only way to get out of the game
 
