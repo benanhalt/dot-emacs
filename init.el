@@ -4,7 +4,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(toe-starting-time-per-word 6)
+ '(tab-width 4)
  '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -66,6 +66,8 @@
 
 (require 'typing)
 (autoload 'typing-of-emacs "Typing of Emacs" t)
+
+(require 'coffee-mode)
 
 ;; use javascript mode for .json
 (setq auto-mode-alist
