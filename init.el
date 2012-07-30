@@ -78,3 +78,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
 
+;; slime
+(setq inferior-lisp-program "sbcl") ; your Lisp system
+(require 'slime-autoloads)
+(slime-setup)
