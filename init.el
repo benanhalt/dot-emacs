@@ -46,6 +46,12 @@
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
 
+;; Functions (load all files in defuns-dir)
+(setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
+(dolist (file (directory-files defuns-dir t "\\w+"))
+  (when (file-regular-p file)
+    (load file)))
+
 (setq frame-title-format
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))

@@ -1,0 +1,6 @@
+(defun back-to-indentation-or-beginning ()
+   (interactive)
+   (if (and (looking-back "^\s+")
+           (eq last-command 'back-to-indentation-or-beginning))
+       (beginning-of-line)
+     (back-to-indentation)))
