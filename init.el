@@ -13,9 +13,21 @@
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "white" :foreground "#221f1e" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 122 :width normal :foundry "unknown" :family "Droid Sans Mono")))))
 
-(let ((default-directory "~/.emacs.d/site-lisp/"))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
+;; Set path to .emacs.d
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+
+;; Set path to dependencies
+(setq site-lisp-dir (expand-file-name "site-lisp" dotfiles-dir))
+
+;; Set up load path
+(add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path site-lisp-dir)
+
+;; Add external projects to load path
+(dolist (project (directory-files site-lisp-dir t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
 
 (require 'scala-mode-auto)
 
@@ -70,15 +82,16 @@
 (require 'coffee-mode)
 
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+(require 'jump-char)
 
 ;; use javascript mode for .json
 (setq auto-mode-alist
       (append '(("\\.json$" . javascript-mode)) auto-mode-alist))
 
-(global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
-
 ;; slime
 (setq inferior-lisp-program "sbcl") ; your Lisp system
 (require 'slime-autoloads)
 (slime-setup)
+
+(require 'key-bindings)
