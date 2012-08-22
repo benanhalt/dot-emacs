@@ -84,6 +84,8 @@
 (packages-install
  (cons 'magit melpa))
 
+(eval-after-load 'magit '(require 'setup-magit))
+
 (require 'restclient)
 
 (require 'typing)
