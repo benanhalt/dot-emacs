@@ -1,3 +1,8 @@
+(set-face-foreground 'magit-diff-add "green3")
+(set-face-foreground 'magit-diff-del "red3")
+(when (not window-system)
+  (set-face-background 'magit-item-highlight "black"))
+
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
