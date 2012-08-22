@@ -7,6 +7,8 @@
 (global-set-key (kbd "M-m") 'jump-char-forward)
 (global-set-key (kbd "M-M") 'jump-char-backward)
 
+(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
+
 (global-set-key (kbd "C-x m") 'magit-status)
 
 (provide 'key-bindings)
