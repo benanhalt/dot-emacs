@@ -106,4 +106,9 @@
 (require 'slime-autoloads)
 (slime-setup)
 
+;; google chrome emacs edit server
+(require 'edit-server)
+(setq edit-server-new-frame nil)
+(edit-server-start)
+
 (require 'key-bindings)
