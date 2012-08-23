@@ -52,6 +52,8 @@
   (when (file-regular-p file)
     (load file)))
 
+(toggle-fullscreen)
+
 (setq frame-title-format
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))
@@ -110,3 +112,4 @@
 (require 'setup-edit-server)
 
 (require 'key-bindings)
+
