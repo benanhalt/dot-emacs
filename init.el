@@ -72,6 +72,9 @@
 (setq auto-mode-alist
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
+(setq auto-mode-alist
+      (append '(("\\.m$" . octave-mode)) auto-mode-alist))
+
 (require 'setup-package)
 (packages-install
  (cons 'magit melpa))
