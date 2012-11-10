@@ -42,8 +42,6 @@
   (when (file-regular-p file)
     (load file)))
 
-(toggle-fullscreen)
-
 (setq frame-title-format
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))
@@ -87,10 +85,12 @@
 (autoload 'typing-of-emacs "Typing of Emacs" t)
 
 (require 'coffee-mode)
-
 (require 'ace-jump-mode)
-
 (require 'jump-char)
+(require 'expand-region)
+(require 'inline-string-rectangle)
+(require 'mark-more-like-this)
+
 
 ;; use javascript mode for .json
 (setq auto-mode-alist
