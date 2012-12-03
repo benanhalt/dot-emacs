@@ -92,6 +92,13 @@
 (require 'mark-more-like-this)
 
 
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+(require 'ipython)
+
 ;; use javascript mode for .json
 (setq auto-mode-alist
       (append '(("\\.json$" . javascript-mode)) auto-mode-alist))
@@ -105,3 +112,4 @@
 (require 'setup-edit-server)
 
 (require 'key-bindings)
+(put 'narrow-to-region 'disabled nil)

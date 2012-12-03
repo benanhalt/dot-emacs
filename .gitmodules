@@ -19,3 +19,9 @@
 [submodule "site-lisp/mark-multiple"]
 	path = site-lisp/mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "site-lisp/ipython-el"]
+	path = site-lisp/ipython-el
+	url = https://github.com/von/ipython.el.git
+[submodule "site-lisp/markdown-mode"]
+	path = site-lisp/markdown-mode
+	url = https://github.com/defunkt/markdown-mode.git
