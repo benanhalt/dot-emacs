@@ -79,6 +79,7 @@
  (cons 'flymake-cursor marmalade))
 
 (eval-after-load 'magit '(require 'setup-magit))
+(eval-after-load 'flymake (require 'setup-flymake))
 
 (require 'restclient)
 
@@ -114,3 +115,4 @@
 
 (require 'key-bindings)
 (put 'narrow-to-region 'disabled nil)
+
