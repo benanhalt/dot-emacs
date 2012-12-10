@@ -116,3 +116,5 @@
 (require 'key-bindings)
 (put 'narrow-to-region 'disabled nil)
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
