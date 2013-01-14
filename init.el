@@ -79,7 +79,7 @@
  (cons 'flymake-cursor marmalade))
 
 (eval-after-load 'magit '(require 'setup-magit))
-(eval-after-load 'flymake (require 'setup-flymake))
+(eval-after-load 'flymake '(require 'setup-flymake))
 
 (require 'restclient)
 
@@ -118,3 +118,7 @@
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))

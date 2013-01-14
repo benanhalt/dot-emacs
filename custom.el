@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(browse-url-browser-function (quote browse-url-chromium))
+ '(browse-url-chromium-program "google-chrome")
  '(inhibit-startup-screen t)
  '(tab-width 4)
  '(tool-bar-mode nil))
