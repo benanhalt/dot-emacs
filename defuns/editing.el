@@ -11,3 +11,16 @@
            (eq last-command 'back-to-indentation-or-beginning))
        (beginning-of-line)
      (back-to-indentation)))
+
+(defun open-line-below ()
+  (interactive)
+  (end-of-line)
+  (newline)
+  (indent-for-tab-command))
+
+(defun open-line-above ()
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command))

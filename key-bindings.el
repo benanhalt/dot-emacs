@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-x m") 'magit-status)
 (global-set-key (kbd "C-x w") 'webjump)
 
+(global-set-key (kbd "C-x C-j") 'dired-jump)
 
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
@@ -22,6 +23,9 @@
 (define-key my-keys-minor-mode-map (kbd "M-M") 'jump-char-backward)
 
 (define-key my-keys-minor-mode-map (kbd "C-w") 'kill-region-or-backward-word)
+
+(define-key my-keys-minor-mode-map (kbd "<C-return>") 'open-line-below)
+(define-key my-keys-minor-mode-map (kbd "<C-S-return>") 'open-line-above)
 
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
