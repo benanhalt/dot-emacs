@@ -4,6 +4,7 @@
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 (global-set-key (kbd "C-x m") 'magit-status)
+(global-set-key (kbd "C-x w") 'webjump)
 
 
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
