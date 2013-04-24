@@ -139,3 +139,5 @@
 (setq auto-revert-verbose nil)
 
 (show-paren-mode 1)
+(setq mouse-yank-at-point t)
+

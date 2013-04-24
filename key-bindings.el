@@ -16,7 +16,7 @@
 
 (define-key my-keys-minor-mode-map (kbd "C-<") 'mark-previous-like-this)
 (define-key my-keys-minor-mode-map (kbd "C->") 'mark-next-like-this)
-(define-key my-keys-minor-mode-map (kbd "C-M-m") 'mark-more-like-this)
+(define-key my-keys-minor-mode-map (kbd "C-M-m") 'mark-more-like-this-extended)
 (define-key my-keys-minor-mode-map (kbd "C-*") 'mark-all-like-this)
 
 (define-key my-keys-minor-mode-map (kbd "M-m") 'jump-char-forward)
