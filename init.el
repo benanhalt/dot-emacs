@@ -100,9 +100,10 @@
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 
-;; use javascript mode for .json
-(setq auto-mode-alist
-      (append '(("\\.json$" . javascript-mode)) auto-mode-alist))
+;; JavaScript
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 
 ;; slime
 (setq inferior-lisp-program "sbcl") ; your Lisp system
