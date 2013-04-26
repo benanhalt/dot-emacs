@@ -76,6 +76,7 @@
 (require 'setup-package)
 (packages-install
  (cons 'magit melpa)
+ (cons 'fill-column-indicator melpa)
  (cons 'flymake-cursor marmalade))
 
 (eval-after-load 'magit '(require 'setup-magit))
@@ -141,3 +142,7 @@
 (show-paren-mode 1)
 (setq mouse-yank-at-point t)
 
+(require 'fill-column-indicator)
+
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
