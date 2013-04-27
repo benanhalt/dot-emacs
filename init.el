@@ -76,7 +76,7 @@
 (require 'setup-package)
 (packages-install
  (cons 'magit melpa)
- (cons 'fill-column-indicator melpa)
+ (cons 'fill-column-indicator marmalade)
  (cons 'flymake-cursor marmalade))
 
 (eval-after-load 'magit '(require 'setup-magit))
