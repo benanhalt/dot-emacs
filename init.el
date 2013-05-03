@@ -19,6 +19,8 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+
 (require 'scala-mode-auto)
 
 ;; Load the ensime lisp code...
@@ -77,12 +79,12 @@
 (packages-install
  (cons 'magit melpa)
  (cons 'fill-column-indicator marmalade)
+ (cons 'undo-tree marmalade)
+ (cons 'visual-regexp melpa)
  (cons 'flymake-cursor marmalade))
 
 (eval-after-load 'magit '(require 'setup-magit))
 (eval-after-load 'flymake '(require 'setup-flymake))
-
-(require 'restclient)
 
 (require 'typing)
 (autoload 'typing-of-emacs "Typing of Emacs" t)
@@ -93,7 +95,9 @@
 (require 'expand-region)
 (require 'inline-string-rectangle)
 (require 'mark-more-like-this)
-
+(require 'visual-regexp)
+(require 'fill-column-indicator)
+(require 'undo-tree)
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -110,9 +114,6 @@
 (setq inferior-lisp-program "sbcl") ; your Lisp system
 (require 'slime-autoloads)
 (slime-setup)
-
-;; google chrome emacs edit server
-(require 'setup-edit-server)
 
 (require 'key-bindings)
 (put 'narrow-to-region 'disabled nil)
@@ -140,9 +141,7 @@
 (setq auto-revert-verbose nil)
 
 (show-paren-mode 1)
+(global-undo-tree-mode)
 (setq mouse-yank-at-point t)
 
-(require 'fill-column-indicator)
-
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+(server-start)
