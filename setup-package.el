@@ -1,31 +1,28 @@
+;; -*- lexical-binding: t -*-
+
 (require 'package)
+(require 'cl-lib)
 
-(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(let ((archives
+       '(("marmalade" . "http://marmalade-repo.org/packages/")
+         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-;; Add marmalade to package repos
-(add-to-list 'package-archives marmalade)
-(add-to-list 'package-archives melpa t)
+      (packages
+       '(magit fill-column-indicator undo-tree visual-regexp flymake-cursor
+               ace-jump-mode coffee-mode jump-char restclient expand-region
+               mark-multiple markdown-mode js2-mode slime)))
 
-(package-initialize)
+  (dolist (archive archives)
+    (add-to-list 'package-archives archive))
 
-(unless (and (file-exists-p "~/.emacs.d/elpa/archives/marmalade")
-             (file-exists-p "~/.emacs.d/elpa/archives/gnu")
-             (file-exists-p "~/.emacs.d/elpa/archives/melpa"))
-  (package-refresh-contents))
-
-(defun packages-install (&rest packages)
-  (mapc (lambda (package)
-          (let ((name (car package))
-                (repo (cdr package)))
-            (when (not (package-installed-p name))
-              (let ((package-archives (list repo)))
-                (package-initialize)
-                (package-install name)))))
-        packages)
   (package-initialize)
-  (delete-other-windows))
+
+  (unless (cl-every 'package-installed-p packages)
+    (package-refresh-contents)
+    (dolist (package packages)
+      (unless (package-installed-p package)
+        (package-install package))))
+)
 
 (provide 'setup-package)
 
