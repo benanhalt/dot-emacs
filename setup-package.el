@@ -11,7 +11,8 @@
       (packages
        '(magit fill-column-indicator undo-tree visual-regexp flymake-cursor
                ace-jump-mode coffee-mode jump-char restclient expand-region
-               mark-multiple markdown-mode js2-mode slime)))
+               mark-multiple markdown-mode js2-mode slime elisp-slime-nav
+               rainbow-delimiters zenburn-theme lua-mode)))
 
   (dolist (archive archives)
     (add-to-list 'package-archives archive))

@@ -8,6 +8,8 @@
 
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 
+(global-set-key (kbd "M-/") 'hippie-expand)
+
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
 (define-key my-keys-minor-mode-map (kbd "C-'") 'ace-jump-mode)

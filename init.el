@@ -1,5 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 
+;; turn off screen real estate theives
+(dolist (mode '(tool-bar-mode menu-bar-mode scroll-bar-mode))
+  (if (fboundp mode) (funcall mode -1)))
+
+(setq inhibit-startup-message t)
+
 ;; Go ahead and load cl since ace-jump-mode is broken and depends on it.
 (require 'cl)
 
@@ -44,6 +50,7 @@
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
 
+(require 'setup-hippie)
 (require 'setup-package)
 
 (eval-after-load 'magit '(require 'setup-magit))
@@ -53,6 +60,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 
 ;; slime
 (setq inferior-lisp-program "sbcl") ; your Lisp system
@@ -83,8 +93,15 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
+(winner-mode 1)
+(column-number-mode 1)
 (show-paren-mode 1)
+(which-function-mode 1)
+(global-rainbow-delimiters-mode)
+
 (setq mouse-yank-at-point t)
+(setq isearch-allow-scroll t)
+(setq compilation-scroll-output 'first-error)
 
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
@@ -92,4 +109,8 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+(load-theme 'zenburn t)
