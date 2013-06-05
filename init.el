@@ -66,7 +66,7 @@
 
 ;; slime
 (setq inferior-lisp-program "sbcl") ; your Lisp system
-(slime-setup)
+(slime-setup '(slime-fancy))
 
 (require 'key-bindings)
 (put 'narrow-to-region 'disabled nil)
@@ -102,6 +102,7 @@
 (setq mouse-yank-at-point t)
 (setq isearch-allow-scroll t)
 (setq compilation-scroll-output 'first-error)
+(setq split-height-threshold nil)
 
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
