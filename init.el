@@ -63,6 +63,7 @@
 
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode 1)))
 
 ;; slime
 (setq inferior-lisp-program "sbcl") ; your Lisp system
@@ -96,7 +97,6 @@
 (winner-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
-(which-function-mode 1)
 (global-rainbow-delimiters-mode)
 
 (setq mouse-yank-at-point t)
