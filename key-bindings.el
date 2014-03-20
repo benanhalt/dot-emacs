@@ -29,6 +29,8 @@
 (define-key my-keys-minor-mode-map (kbd "<C-return>") 'open-line-below)
 (define-key my-keys-minor-mode-map (kbd "<C-S-return>") 'open-line-above)
 
+(define-key my-keys-minor-mode-map (kbd "<f7>") 'recentf-open-files)
+
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map)

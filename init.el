@@ -98,6 +98,7 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (global-rainbow-delimiters-mode)
+(recentf-mode 1)
 
 (setq mouse-yank-at-point t)
 (setq isearch-allow-scroll t)
