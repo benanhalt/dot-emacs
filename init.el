@@ -106,7 +106,6 @@
 (setq split-height-threshold nil)
 
 (setq-default indent-tabs-mode nil)
-(setq-default show-trailing-whitespace t)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
