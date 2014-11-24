@@ -15,4 +15,9 @@
                         (cons 'try-complete-lisp-symbol
                               hippie-expand-try-functions-list)))))
 
+
+
+(add-hook 'slime-mode-hook 'set-up-slime-hippie-expand)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-hippie-expand)
+
 (provide 'setup-hippie)

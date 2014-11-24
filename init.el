@@ -38,6 +38,8 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+(require 'setup-helm)
+
 ;; (when (require 'geiser-install nil t)
 ;;   (setq geiser-repl-startup-time 20000))
 
@@ -54,7 +56,7 @@
 (require 'setup-package)
 
 (eval-after-load 'magit '(require 'setup-magit))
-(eval-after-load 'flymake '(require 'setup-flymake))
+;; (eval-after-load 'flymake '(require 'setup-flymake))
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -97,7 +99,6 @@
 (winner-mode 1)
 (column-number-mode 1)
 (show-paren-mode 1)
-(global-rainbow-delimiters-mode)
 (recentf-mode 1)
 
 (setq mouse-yank-at-point t)
@@ -107,6 +108,8 @@
 
 (setq-default indent-tabs-mode nil)
 
+(add-hook 'prog-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+
 (require 'undo-tree)
 (global-undo-tree-mode)
 
@@ -114,4 +117,5 @@
 (unless (server-running-p)
   (server-start))
 
-(load-theme 'zenburn t)
+(when (display-graphic-p)
+  (load-theme 'zenburn t))
