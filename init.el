@@ -38,7 +38,6 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-(require 'setup-helm)
 
 ;; (when (require 'geiser-install nil t)
 ;;   (setq geiser-repl-startup-time 20000))
@@ -54,6 +53,7 @@
 
 (require 'setup-hippie)
 (require 'setup-package)
+(require 'setup-helm)
 
 (eval-after-load 'magit '(require 'setup-magit))
 ;; (eval-after-load 'flymake '(require 'setup-flymake))
