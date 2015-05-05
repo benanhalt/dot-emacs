@@ -55,6 +55,7 @@
 (require 'setup-package)
 (require 'setup-helm)
 
+(setq magit-last-seen-setup-instructions "1.4.0")
 (eval-after-load 'magit '(require 'setup-magit))
 ;; (eval-after-load 'flymake '(require 'setup-flymake))
 
