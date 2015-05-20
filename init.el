@@ -59,6 +59,9 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+(when (fboundp 'nyan-mode)
+  (nyan-mode 1))
+
 (setq magit-last-seen-setup-instructions "1.4.0")
 (eval-after-load 'magit '(require 'setup-magit))
 ;; (eval-after-load 'flymake '(require 'setup-flymake))
