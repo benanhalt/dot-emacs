@@ -34,9 +34,9 @@
       '((buffer-file-name "%f" (dired-directory dired-directory "%b")) " - "
         invocation-name "@" system-name))
 
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-everywhere t)
+;; (ido-mode 1)
 
 
 ;; (when (require 'geiser-install nil t)
@@ -54,6 +54,10 @@
 (require 'setup-hippie)
 (require 'setup-package)
 (require 'setup-helm)
+
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 (eval-after-load 'magit '(require 'setup-magit))
