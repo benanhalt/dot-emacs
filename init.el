@@ -109,7 +109,9 @@
 
 (setq-default indent-tabs-mode nil)
 
-(add-hook 'prog-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+(let ((stw '(lambda () (setq show-trailing-whitespace t))))
+  (dolist (hook '(prog-mode-hook python-mode-hook))
+    (add-hook hook stw)))
 
 (require 'undo-tree)
 (global-undo-tree-mode)
