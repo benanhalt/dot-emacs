@@ -54,6 +54,7 @@
 (require 'setup-hippie)
 (require 'setup-package)
 (require 'setup-helm)
+(require 'setup-markdown)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
