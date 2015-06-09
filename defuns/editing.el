@@ -1,3 +1,8 @@
+(defun untabify-buffer ()
+  "untabify buffer or narrowed portion of buffer"
+  (interactive)
+  (untabify (point-min) (point-max)))
+
 (defun kill-region-or-backward-word ()
   "kill region if active, otherwise kill backward word"
   (interactive)
