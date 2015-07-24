@@ -29,3 +29,5 @@
   (newline)
   (forward-line -1)
   (indent-for-tab-command))
+
+(provide 'benanhalt-editing)
