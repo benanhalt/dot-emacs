@@ -162,6 +162,7 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+(bind-key "M-SPC" 'cycle-spacing)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
