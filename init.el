@@ -72,7 +72,11 @@
 (use-package helm-descbinds
   :ensure t
   :bind (("C-h b" . helm-descbinds)
-         ("C-h w" . helm-descbinds)))
+         ("C-h w" . helm-descbinds))
+  :init (fset 'describe-bindings 'helm-descbinds)
+  :config
+  (setq helm-descbinds-window-style 'split-window)
+  (helm-descbinds-mode))
 
 (use-package helm-projectile
   :ensure t
