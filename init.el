@@ -140,7 +140,18 @@
 
 (use-package magit
   :ensure t
-  :bind ("C-x m" . magit-status)
+  :bind (("C-x m" . magit-status))
+  :config
+  (defadvice magit-status (around magit-fullscreen activate)
+    (window-configuration-to-register :magit-fullscreen)
+    ad-do-it
+    (delete-other-windows))
+  (defun magit-quit-session ()
+    "Restores the previous window configurations and kills the magit buffer"
+    (interactive)
+    (kill-buffer)
+    (jump-to-register :magit-fullscreen))
+  (bind-key "q" 'magit-quit-session magit-status-mode-map)
   :init (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package slime
