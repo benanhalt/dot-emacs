@@ -163,6 +163,7 @@
 (put 'narrow-to-region 'disabled nil)
 
 (bind-key "M-SPC" 'cycle-spacing)
+(bind-key "C-x C-b" 'helm-mini)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
