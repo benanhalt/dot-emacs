@@ -146,12 +146,21 @@
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
     (delete-other-windows))
+
   (defun magit-quit-session ()
     "Restores the previous window configurations and kills the magit buffer"
     (interactive)
     (kill-buffer)
     (jump-to-register :magit-fullscreen))
+
   (bind-key "q" 'magit-quit-session magit-status-mode-map)
+
+  (defun magit-format-duration (duration spec width)
+    "Display commit time as absolute"
+    (format-time-string "%x %X" (seconds-to-time (- (float-time) duration))))
+
+  (setq magit-log-margin-spec '(40 18 nil)) ; Gotten by trial and error.
+
   :init (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package slime
