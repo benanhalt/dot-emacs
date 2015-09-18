@@ -25,6 +25,7 @@
 (use-package benanhalt-editing
   :load-path "lisp/"
   :bind (("C-a" . back-to-indentation-or-beginning)
+         ("C-t" . yank-and-indent)
          ("C-w" . kill-region-or-backward-word)
          ("<C-return>" . open-line-below)
          ("<C-S-return>" . open-line-above)))
@@ -61,8 +62,10 @@
   :bind (("C-c h" . helm-command-prefix)
          ("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
+         ("C-x C-b" . helm-mini)
          ("C-x b" . helm-mini)
-         ("C-x C-f" . helm-find-files))
+         ("C-x C-f" . helm-find-files)
+         ("C-x f" . helm-find-files))
 
   :config
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
@@ -140,7 +143,8 @@
 
 (use-package magit
   :ensure t
-  :bind (("C-x m" . magit-status))
+  :bind (("C-x m" . magit-status)
+         ("C-x C-m" . magit-status))
   :config
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
@@ -171,6 +175,13 @@
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'forward))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-c C->" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
+
 (use-package benanhalt-hippie
   :load-path "lisp/")
 
@@ -183,7 +194,6 @@
 (put 'narrow-to-region 'disabled nil)
 
 (bind-key "M-SPC" 'cycle-spacing)
-(bind-key "C-x C-b" 'helm-mini)
 
 (org-babel-do-load-languages
  'org-babel-load-languages

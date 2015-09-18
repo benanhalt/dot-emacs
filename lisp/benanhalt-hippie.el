@@ -17,7 +17,7 @@
 
 
 
-(add-hook 'slime-mode-hook 'set-up-slime-hippie-expand)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-hippie-expand)
+;; (add-hook 'slime-mode-hook 'set-up-slime-hippie-expand)
+;; (add-hook 'slime-repl-mode-hook 'set-up-slime-hippie-expand)
 
 (provide 'benanhalt-hippie)
