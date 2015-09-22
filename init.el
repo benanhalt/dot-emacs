@@ -199,6 +199,12 @@
  'org-babel-load-languages
  '((python . t)))
 
+(setq org-directory "~/Dropbox/OrgFiles")
+(setq org-agenda-files (list org-directory))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-mobile-inbox-for-pull "~/Dropbox/OrgFiles/MobileInbox.org")
+
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
