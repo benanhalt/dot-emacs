@@ -44,7 +44,8 @@
 
 (use-package avy
   :ensure t
-  :bind ("C-'" . avy-goto-char))
+  :bind (("C-'" . avy-goto-char)
+         ("C-o" . avy-goto-word-1)))
 
 (use-package helm
   :ensure t
