@@ -18,7 +18,7 @@
 
 (defun back-to-indentation-or-beginning ()
    (interactive)
-   (if (and (looking-back "^\s+")
+   (if (and (looking-back "^[\t\s]+")
            (eq last-command 'back-to-indentation-or-beginning))
        (beginning-of-line)
      (back-to-indentation)))
