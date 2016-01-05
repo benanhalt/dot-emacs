@@ -36,4 +36,8 @@
   (forward-line -1)
   (indent-for-tab-command))
 
+(defun align-on-equal-sign ()
+  (interactive)
+  (align-regexp (region-beginning) (region-end) "\\(\\s-*\\)="))
+
 (provide 'benanhalt-editing)

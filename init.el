@@ -27,6 +27,7 @@
   :bind (("C-a" . back-to-indentation-or-beginning)
          ("C-t" . yank-and-indent)
          ("C-w" . kill-region-or-backward-word)
+         ("C-c a" . align-on-equal-sign)
          ("<C-return>" . open-line-below)
          ("<C-S-return>" . open-line-above)))
 
