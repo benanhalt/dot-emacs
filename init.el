@@ -114,9 +114,9 @@
     (make-local-variable 'paragraph-separate)
     (make-local-variable 'paragraph-start)
     (setq paragraph-start
-          (concatenate 'string "#+.*$\\|" paragraph-start))
+          (concatenate 'string "#+.*$\\|=+$\\|" paragraph-start))
     (setq paragraph-separate
-          (concatenate 'string "#+.*$\\|" paragraph-separate)))
+          (concatenate 'string "#+.*$\\|=+$\\|" paragraph-separate)))
 
   (add-hook 'markdown-mode-hook 'my/fix-markdown-paragraph-fill))
 
