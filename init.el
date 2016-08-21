@@ -89,11 +89,6 @@
   (helm-projectile-on)
   (setq projectile-completion-system 'helm))
 
-(use-package smooth-scroll
-  :ensure t
-  :diminish smooth-scroll-mode
-  :config (smooth-scroll-mode t))
-
 (use-package nyan-mode
   :ensure t
   :config (nyan-mode t))
