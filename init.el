@@ -174,6 +174,10 @@
   :init (setq inferior-lisp-program "sbcl")
   :config (slime-setup '(slime-fancy)))
 
+(use-package intero
+  :ensure t
+  :config (add-hook 'haskell-mode-hook 'intero-mode))
+
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'forward))
 
