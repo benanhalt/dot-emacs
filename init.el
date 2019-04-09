@@ -274,8 +274,19 @@
 
 (global-unset-key (kbd "C-x C-c"))
 
+(require 'ansi-color)
+(defun my/colorize-compilation ()
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region
+     compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook
+          #'my/colorize-compilation)
+
 (require 'server)
 (unless (server-running-p)
   (server-start))
 
 
+(put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
