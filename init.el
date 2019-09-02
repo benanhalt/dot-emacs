@@ -148,10 +148,11 @@
               ("C-t" . company-search-toggle-filtering)
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous)
+              ("<tab>" . company-complete-selection)
               :map company-active-map
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous)
-              ("TAB" . company-complete-selection)))
+              ("<tab>" . company-complete-selection)))
 
 (use-package zenburn-theme
   :ensure t
