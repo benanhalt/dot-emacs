@@ -129,6 +129,33 @@
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'turn-on-elisp-slime-nav-mode)))
 
+(use-package purescript-mode
+  :ensure t
+  :mode "\\.purs")
+
+(use-package flycheck-purescript
+  :ensure t)
+
+(use-package psc-ide
+  :ensure t
+  :config
+  (add-hook 'purescript-mode-hook
+            (lambda () (psc-ide-mode)
+              (company-mode)
+              (flycheck-mode)
+              (turn-on-purescript-indentation))))
+
+(use-package company
+  :ensure t
+  :bind (:map company-search-map
+              ("C-t" . company-search-toggle-filtering)
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)
+              :map company-active-map
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)
+              ("TAB" . company-complete-selection)))
+
 (use-package zenburn-theme
   :ensure t
   :config
