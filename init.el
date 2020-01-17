@@ -22,6 +22,9 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package diminish
+  :ensure t)
+
 (use-package benanhalt-editing
   :load-path "lisp/"
   :bind (("C-a" . back-to-indentation-or-beginning)
@@ -39,7 +42,9 @@
 ;;   (setq undo-tree-visualizer-timestamps t)
 ;;   (setq undo-tree-visualizer-diff t))
 
-(use-package fira-code-mode :load-path "lisp/")
+(use-package fira-code-mode
+  :load-path "lisp/"
+  :diminish)
 
 (use-package projectile
   :ensure t
