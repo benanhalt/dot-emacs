@@ -31,13 +31,15 @@
          ("<C-return>" . open-line-below)
          ("<C-S-return>" . open-line-above)))
 
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :config
-  (global-undo-tree-mode)
-  (setq undo-tree-visualizer-timestamps t)
-  (setq undo-tree-visualizer-diff t))
+;; (use-package undo-tree
+;;   :ensure t
+;;   :diminish undo-tree-mode
+;;   :config
+;;   (global-undo-tree-mode)
+;;   (setq undo-tree-visualizer-timestamps t)
+;;   (setq undo-tree-visualizer-diff t))
+
+(use-package fira-code-mode :load-path "lisp/")
 
 (use-package projectile
   :ensure t
