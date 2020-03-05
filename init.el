@@ -46,10 +46,6 @@
   :load-path "lisp/"
   :diminish)
 
-(use-package projectile
-  :ensure t
-  :config (projectile-global-mode))
-
 (use-package avy
   :ensure t
   :bind (("C-'" . avy-goto-char)
@@ -89,12 +85,6 @@
   :config
   (setq helm-descbinds-window-style 'split-window)
   (helm-descbinds-mode))
-
-(use-package helm-projectile
-  :ensure t
-  :config
-  (helm-projectile-on)
-  (setq projectile-completion-system 'helm))
 
 (use-package nyan-mode
   :ensure t
@@ -189,12 +179,7 @@
     (jump-to-register :magit-fullscreen))
 
   (bind-key "q" 'magit-quit-session magit-status-mode-map)
-
-  (defun magit-format-duration (duration spec width)
-    "Display commit time as absolute"
-    (format-time-string "%x %X" (seconds-to-time (- (float-time) duration))))
-
-  (setq magit-log-margin-spec '(40 18 nil)) ; Gotten by trial and error.
+  (setq magit-log-margin '(t "%m/%d/%Y %H:%M " magit-log-margin-width nil 18))
 
   :init (setq magit-last-seen-setup-instructions "1.4.0"))
 
