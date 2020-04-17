@@ -25,6 +25,8 @@
 (use-package diminish
   :ensure t)
 
+(use-package reformatter :ensure t)
+
 (use-package benanhalt-editing
   :load-path "lisp/"
   :bind (("C-a" . back-to-indentation-or-beginning)
@@ -128,7 +130,14 @@
 
 (use-package purescript-mode
   :ensure t
-  :mode "\\.purs")
+  :mode "\\.purs"
+  :config
+  (setq purty-command "purty")
+  (reformatter-define purescript-format
+    :program purty-command
+    :args '("-"))
+
+  :bind (("C-c C-f" . purescript-format-buffer)))
 
 (use-package flycheck-purescript
   :ensure t)
