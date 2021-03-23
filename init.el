@@ -151,6 +151,10 @@
               (flycheck-mode)
               (turn-on-purescript-indentation))))
 
+(use-package rectangle-utils
+  :ensure t
+  :bind (("C-x r e" . rectangle-utils-extend-rectangle-to-end)))
+
 (use-package company
   :ensure t
   :bind (:map company-search-map
