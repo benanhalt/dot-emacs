@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-;; turn off screen real estate theives
+;; more screen real estate.
 (dolist (mode '(tool-bar-mode menu-bar-mode scroll-bar-mode))
   (if (fboundp mode) (funcall mode -1)))
 
@@ -118,38 +118,27 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js$")
-
 (use-package elisp-slime-nav
   :ensure t
   :config
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'turn-on-elisp-slime-nav-mode)))
 
-(use-package purescript-mode
+(use-package which-key :ensure t)
+
+(use-package lsp-mode
   :ensure t
-  :mode "\\.purs"
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
   :config
-  (setq purty-command "purty")
-  (reformatter-define purescript-format
-    :program purty-command
-    :args '("-"))
+  (setq lsp-go-gopls-server-path "/Users/benanhalt/go/bin/gopls")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (go-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-  :bind (("C-c C-f" . purescript-format-buffer)))
-
-(use-package flycheck-purescript
-  :ensure t)
-
-(use-package psc-ide
-  :ensure t
-  :config
-  (add-hook 'purescript-mode-hook
-            (lambda () (psc-ide-mode)
-              (company-mode)
-              (flycheck-mode)
-              (turn-on-purescript-indentation))))
 
 (use-package rectangle-utils
   :ensure t
@@ -173,9 +162,6 @@
   (when (display-graphic-p)
     (load-theme 'zenburn t)))
 
-(use-package lua-mode
-  :ensure t)
-
 (use-package magit
   :ensure t
   :bind (("C-x m" . magit-status)
@@ -196,15 +182,6 @@
   (setq magit-log-margin '(t "%m/%d/%Y %H:%M " magit-log-margin-width nil 18))
 
   :init (setq magit-last-seen-setup-instructions "1.4.0"))
-
-(use-package slime
-  :ensure t
-  :init (setq inferior-lisp-program "sbcl")
-  :config (slime-setup '(slime-fancy)))
-
-(use-package intero
-  :ensure t
-  :config (add-hook 'haskell-mode-hook 'intero-mode))
 
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'forward))
