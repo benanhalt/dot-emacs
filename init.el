@@ -210,33 +210,6 @@
  'org-babel-load-languages
  '((python . t)))
 
-(setq org-directory "~/Dropbox/OrgFiles")
-(setq org-agenda-files (list org-directory))
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-(setq org-mobile-inbox-for-pull "~/Dropbox/OrgFiles/MobileInbox.org")
-
-(defvar my-org-mobile-sync-secs (* 60 5))
-
-(defun my-org-mobile-sync-push-pull ()
-  (org-mobile-pull)
-  (org-mobile-push))
-
-(defun my-org-mobile-sync-start ()
-  "Start automated 'org-mobile-push'"
-  (interactive)
-  (setq my-org-mobile-sync-timer
-        (run-with-idle-timer my-org-mobile-sync-secs t
-                             'my-org-mobile-sync-push-pull)))
-
-(defun my-org-mobile-sync-stop ()
-  "Start automated 'org-mobile-push'"
-  (interactive)
-  (cancel-timer my-org-mobile-sync-timer))
-
-(when (string= system-name "DHWD99P1")
-  (my-org-mobile-sync-start))
-
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
