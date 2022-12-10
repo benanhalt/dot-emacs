@@ -9,9 +9,6 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file)
 
-(set-face-attribute 'default nil :height 160)
-(set-frame-parameter nil 'fullscreen 'maximized)
-
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
