@@ -27,6 +27,9 @@
 
 (use-package reformatter :ensure t)
 
+(use-package string-inflection
+  :ensure t)
+
 (use-package benanhalt-editing
   :load-path "lisp/"
   :bind (("C-a" . back-to-indentation-or-beginning)
