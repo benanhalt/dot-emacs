@@ -25,6 +25,8 @@
 (use-package diminish
   :ensure t)
 
+(use-package nix-mode :ensure t)
+
 (use-package reformatter :ensure t)
 
 (use-package string-inflection
@@ -95,12 +97,12 @@
   :ensure t
   :config (nyan-mode t))
 
-(use-package smartparens
-  :ensure t
-  :config
-  (require 'smartparens-config)
-  (sp-use-smartparens-bindings)
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-mode))
+;; (use-package smartparens
+;;   :ensure t
+;;   :config
+;;   (require 'smartparens-config)
+;;   (sp-use-smartparens-bindings)
+;;   (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-mode))
 
 (use-package markdown-mode
   :ensure t
