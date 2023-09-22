@@ -259,7 +259,7 @@
   (dolist (hook '(prog-mode-hook python-mode-hook))
     (add-hook hook stw)))
 
-(global-unset-key (kbd "C-x C-c"))
+(setq confirm-kill-emacs 'y-or-n-p)
 
 (require 'ansi-color)
 (defun my/colorize-compilation ()
