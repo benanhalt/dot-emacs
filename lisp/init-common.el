@@ -49,10 +49,6 @@
 ;;   (setq undo-tree-visualizer-timestamps t)
 ;;   (setq undo-tree-visualizer-diff t))
 
-(use-package fira-code-mode
-  :load-path "lisp/"
-  :diminish)
-
 (use-package avy
   :ensure t
   :bind (("C-'" . avy-goto-char)
