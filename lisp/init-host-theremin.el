@@ -1,5 +1,5 @@
 
-(set-face-attribute 'default nil :height 160)
+;; (set-face-attribute 'default nil :height 160)
 (set-frame-parameter nil 'fullscreen 'maximized)
 
 (use-package yaml-mode :ensure t)
@@ -38,3 +38,7 @@
                                        "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
 
   (global-ligature-mode 't))
+
+(use-package envrc
+  :ensure t
+  :hook (after-init . envrc-global-mode))
