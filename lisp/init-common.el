@@ -273,3 +273,4 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(setq ring-bell-function 'ignore)
